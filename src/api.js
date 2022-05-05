@@ -10,33 +10,37 @@ const airtable = new Airtable({ apiKey: process.env.API_KEY })
     .table('react-app')
 
 router.get('/products', async (req, res) => {
-    const { records } = await airtable.list()
-    const data = records.map((record) => {
-        const { id } = record
-        const {
-            name,
-            images,
-            price,
-            category,
-            stars,
-            company,
-            featured,
-            shipping,
-            stock,
-            reviews,
-        } = record.fields
-        return {
-            id,
-            name,
-            image: images[0].url,
-            price,
-            category,
-            company,
-            featured,
-            shipping,
-        }
-    })
-    res.json([...data])
+    try {
+        const { records } = await airtable.list()
+        const data = records.map((record) => {
+            const { id } = record
+            const {
+                name,
+                images,
+                price,
+                category,
+                stars,
+                company,
+                featured,
+                shipping,
+                stock,
+                reviews,
+            } = record.fields
+            return {
+                id,
+                name,
+                image: images[0].url,
+                price,
+                category,
+                company,
+                featured,
+                shipping,
+            }
+        })
+        res.json([...data])
+    } catch (error) {
+        res.json(error)
+    }
 })
 
 app.use(`/.netlify/functions/api`, router)
