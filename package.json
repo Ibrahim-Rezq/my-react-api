@@ -1,0 +1,27 @@
+{
+    "name": "react-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Ibrahim-Rezq/my-react-api.git"
+    },
+    "scripts": {
+        "start": "netlify-lambda serve src",
+        "build": "./node_modules/.bin/netlify-lambda build src"
+    },
+    "author": "Ibrahim_Rezq",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Ibrahim-Rezq/my-react-api/issues"
+    },
+    "homepage": "https://github.com/Ibrahim-Rezq/my-react-api#readme",
+    "dependencies": {
+        "airtable-node": "^0.1.20",
+        "dotenv": "^16.0.0",
+        "express": "^4.16.4",
+        "netlify-lambda": "^1.4.3",
+        "serverless-http": "^1.9.1"
+    }
+}
