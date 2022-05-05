@@ -1,5 +1,13 @@
 [build]
-  functions = "./functions"
+functions = "./functions"
 
-[dev]
-  publish = "dist"
+[[redirects]]
+  from = "/"
+  to = "https://react-api-ecommerce.netlify.app/.netlify/functions/api/products"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
