@@ -2,12 +2,11 @@
 functions = "./functions"
 
 [[redirects]]
-  from = "/"
-  to = "https://react-api-ecommerce.netlify.app/.netlify/functions/api/products"
+  from = "/*"
+  to = "/.netlify/functions/api/:splat"
   status = 200
-  force = true
-  headers = {X-From = "Netlify"}
+
 [[headers]]
   for = "/*"
-  [headers.values]
+    [headers.values]
     Access-Control-Allow-Origin = "*"

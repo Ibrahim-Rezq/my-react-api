@@ -37,9 +37,9 @@ router.get('/products', async (req, res) => {
                 shipping,
             }
         })
-        res.json([...data])
+        res.json(data)
     } catch (error) {
-        res.json(error)
+        res.json({ error: error })
     }
 })
 
